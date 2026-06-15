@@ -1121,6 +1121,18 @@ function themeoptions_page(){
 							<p class="description"><?php _e('在图片被加载之前显示的加载效果', 'argon');?> , <a target="_blank" href="<?php bloginfo('template_url'); ?>/assets/vendor/svg-loaders"><?php _e('预览所有效果', 'argon');?></a></p>
 						</td>
 					</tr>
+					<tr><th class="subtitle"><h2><?php _e('图片裁剪', 'argon');?></h2></th></tr>
+					<tr>
+						<th><label><?php _e('禁用 WordPress 图片裁剪', 'argon');?></label></th>
+						<td>
+							<select name="argon_disable_image_crop">
+								<?php $argon_disable_image_crop = get_option('argon_disable_image_crop'); ?>
+								<option value="false" <?php if ($argon_disable_image_crop=='false' || $argon_disable_image_crop==''){echo 'selected';} ?>><?php _e('不禁用（默认）', 'argon');?></option>
+								<option value="true" <?php if ($argon_disable_image_crop=='true'){echo 'selected';} ?>><?php _e('禁用', 'argon');?></option>
+							</select>
+							<p class="description"><?php _e('禁用后，WordPress 将不会自动裁剪上传的图片生成多个尺寸，也不会生成 scaled 裁切版本。', 'argon');?><br/><?php _e('这可以节省服务器存储空间，但可能会影响图片加载速度。', 'argon');?></p>
+						</td>
+					</tr>
 					<tr><th class="subtitle"><h2><?php _e('图片放大浏览', 'argon');?></h2></th></tr>
 					<tr>
 						<th><label><?php _e('是否启用图片放大浏览 (Fancybox)', 'argon');?></label></th>

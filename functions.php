@@ -39,6 +39,12 @@ switch ($argon_assets_path) {
 	    $GLOBALS['assets_path'] = get_bloginfo('template_url');
 }
 
+//禁用图片裁剪（可在主题设置中配置）
+if (get_option('argon_disable_image_crop') == 'true') {
+	add_filter('intermediate_image_sizes_advanced', '__return_false' ); //移除图片裁切
+	add_filter('big_image_size_threshold', '__return_false' ); //移除 scaled 裁切
+}
+
 //翻译 Hook
 function argon_locate_filter($locate){
 	if (substr($locate, 0, 2) == 'zh'){
