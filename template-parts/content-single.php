@@ -16,7 +16,17 @@
 				</style>";
 			}
 		?>
-		<a class="post-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+		<style>
+		    h1.article-title {
+		        margin-top: 0px !important;
+		        margin-bottom: 0px !important;
+		        font-weight: normal;
+		    }
+		    h1.article-title:before {
+		        content: none !important;
+		    }
+		</style>
+		<h1 class="article-title"><a class="post-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 		<div class="post-meta">
 			<?php
 				$metaList = explode('|', get_option('argon_article_meta', 'time|views|comments|categories'));
