@@ -3,15 +3,21 @@
 .btn {
     position: relative;
     text-transform: $btn-text-transform;
-    transition: $transition-base;
+    transition: all .1s cubic-bezier(0.4, 0, 0.23, 1);
     will-change: transform;
     letter-spacing: $btn-letter-spacing;
     font-size: $input-btn-font-size;
-    
+    font-weight: 600;
+
     &:hover {
         @include box-shadow($btn-hover-box-shadow);
-        transform: translateY(-1px);
-    }  
+        transform: scale(1.02);
+    }
+
+    &:active {
+        transform: scale(0.98);
+        transition: all .05s ease;
+    }
 
     &:not(:last-child) {
         margin-right: .5rem;

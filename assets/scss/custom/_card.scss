@@ -88,8 +88,9 @@
 // Animated cards
 
 .card-lift--hover {
+    transition: all .2s cubic-bezier(0.4, 0, 0.23, 1);
     &:hover {
-        transform: translateY(-20px);
-        @include transition($transition-base);
+        transform: translateY(-4px) scale(1.01);
+        @include box-shadow(0 12.8px 28.8px rgba($black, .18), 0 2.4px 7.2px rgba($black, .14));
     }
 }

@@ -1,0 +1,61 @@
+// Windows 11 Fluent Design Acrylic Material System
+
+@mixin acrylic-background($opacity: 0.9, $blur: 30px, $tint: rgba(255, 255, 255, 0.5)) {
+    background: linear-gradient(135deg, $tint, transparent 50%),
+                rgba(255, 255, 255, $opacity);
+    backdrop-filter: saturate(180%) blur($blur);
+    -webkit-backdrop-filter: saturate(180%) blur($blur);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    html.darkmode & {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent 50%),
+                    rgba(32, 32, 32, $opacity);
+        border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    // Fallback for browsers without backdrop-filter support
+    @supports not (backdrop-filter: blur($blur)) {
+        background-color: rgba(255, 255, 255, 0.98);
+
+        html.darkmode & {
+            background-color: rgba(32, 32, 32, 0.98);
+        }
+    }
+}
+
+// Apply to navbar - Windows 11 style acrylic
+.navbar-main {
+    @include acrylic-background(0.7, 30px, rgba(249, 249, 249, 0.3));
+    box-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.05), 0 8px 16px rgba(0, 0, 0, 0.06);
+
+    html.darkmode & {
+        box-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.05), 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+}
+
+// Apply to dropdown menus - softer acrylic
+.dropdown-menu {
+    @include acrylic-background(0.8, 40px, rgba(249, 249, 249, 0.4));
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.14), 0 0px 2px rgba(0, 0, 0, 0.12);
+}
+
+// Apply to modals - stronger acrylic
+.modal-content {
+    @include acrylic-background(0.85, 60px, rgba(252, 252, 252, 0.5));
+    box-shadow: 0 32px 64px rgba(0, 0, 0, 0.24), 0 0px 8px rgba(0, 0, 0, 0.16);
+}
+
+// Optional: Sidebar widgets - subtle acrylic
+#leftbar .card,
+#rightbar .card {
+    @include acrylic-background(0.6, 40px, rgba(255, 255, 255, 0.3));
+}
+
+// Dark mode stronger blur and different tint
+html.darkmode {
+    .dropdown-menu,
+    .modal-content {
+        backdrop-filter: saturate(180%) blur(50px);
+        -webkit-backdrop-filter: saturate(180%) blur(50px);
+    }
+}

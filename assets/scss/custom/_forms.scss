@@ -6,8 +6,17 @@ label {
 
 .form-control {
     font-size: $input-btn-font-size;
-    height: calc(2.75rem + 2px);
+    height: 32px;
+    border-radius: $border-radius-sm;
+    transition: all .1s cubic-bezier(0.4, 0, 0.23, 1);
+
+    &:hover {
+        border-color: var(--themecolor);
+    }
+
     &:focus {
+        border-color: var(--themecolor);
+        box-shadow: 0 0 0 1px var(--themecolor);
         &::placeholder {
             color: $input-focus-placeholder-color;
         }

@@ -1,5 +1,7 @@
 .badge {
-    text-transform: $badge-text-transfom;
+    text-transform: none;
+    border-radius: $border-radius-sm;
+    padding: 2px 8px;
 
     a {
         color: #FFF;

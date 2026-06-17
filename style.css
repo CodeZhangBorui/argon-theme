@@ -12,13 +12,13 @@ Tags: 简约, 两栏, 侧栏在左边, 浮动侧栏, 文章目录, 自适应, �
 @charset "utf-8";
 
 :root {
-	--themecolor: #5e72e4;
-	--themecolor-R: 94;
-	--themecolor-G: 114;
-	--themecolor-B: 228;
-	--themecolor-H: 231;
-	--themecolor-S: 71;
-	--themecolor-L: 63;
+	--themecolor: #1877f2;
+	--themecolor-R: 24;
+	--themecolor-G: 119;
+	--themecolor-B: 242;
+	--themecolor-H: 214;
+	--themecolor-S: 89;
+	--themecolor-L: 52;
 	--themecolor-rgbstr: var(--themecolor-R), var(--themecolor-G), var(--themecolor-B);
 	--themecolor-dark0: hsl(var(--themecolor-H), calc(var(--themecolor-S) * 1%), max(calc(var(--themecolor-L) * 1% - 2.5%), 0%));
 	--themecolor-dark: hsl(var(--themecolor-H), calc(var(--themecolor-S) * 1%), max(calc(var(--themecolor-L) * 1% - 5%), 0%));
@@ -103,16 +103,16 @@ Tags: 简约, 两栏, 侧栏在左边, 浮动侧栏, 文章目录, 自适应, �
 	--color-selection: #cce2ff;
 }
 html.darkmode body {
-	--color-background: #282828;
-	--color-foreground: #424242;
-	--color-widgets: #555;
-	--color-widgets-disabled: #474747;
-	--color-border: #777;
-	--color-border-on-foreground: #555;
-	--color-border-on-foreground-deeper: #777;
-	--color-text-deeper: #eee;
-	--color-darkmode-toolbar: 33, 33, 33;
-	--color-darkmode-banner: #212121;
+	--color-background: #201f1e;
+	--color-foreground: #292827;
+	--color-widgets: #323130;
+	--color-widgets-disabled: #3b3a39;
+	--color-border: #484644;
+	--color-border-on-foreground: #3b3a39;
+	--color-border-on-foreground-deeper: #484644;
+	--color-text-deeper: #f3f2f1;
+	--color-darkmode-toolbar: 32, 31, 30;
+	--color-darkmode-banner: #292827;
 	--color-selection: #607799;
 }
 html.darkmode.amoled-dark body,
@@ -192,8 +192,8 @@ html.immersion-color.darkmode body {
 
 /* Main CSS */
 :root {
-	--card-radius: 4px;
-	--font: "Open Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica,
+	--card-radius: 8px;
+	--font: "Segoe UI", "Open Sans", -apple-system, system-ui, BlinkMacSystemFont, Roboto, "Helvetica Neue", Helvetica,
 		Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
 }
 html.themecolor-toodark.darkmode {
@@ -751,22 +751,22 @@ html.triple-column #content {
 	}
 }
 
-/*Pjax加载动画 & 卡片动画*/
+/*Pjax加载动画 & 卡片动画 - Windows 11 Fluent Style*/
 @keyframes card-show {
 	0% {
 		opacity: 0;
-		transform: scale(0.8);
+		transform: translateY(10px) scale(0.98);
 	}
 	100% {
 		opacity: 1;
-		transform: none;
+		transform: translateY(0) scale(1);
 	}
 }
 #primary {
-	transition: all 0.3s ease;
+	transition: all 0.3s cubic-bezier(0.1, 0.9, 0.2, 1);
 }
 .card {
-	animation: card-show 0.25s ease-out;
+	animation: card-show 0.3s cubic-bezier(0.1, 0.9, 0.2, 1);
 	transform-origin: center top;
 }
 .card .card {

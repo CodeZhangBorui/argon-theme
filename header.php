@@ -126,6 +126,15 @@
 	<?php wp_head(); ?>
 	<?php $GLOBALS['wp_path'] = get_option('argon_wp_path') == '' ? '/' : get_option('argon_wp_path'); ?>
 	<script>
+		// Backdrop filter support detection
+		if (CSS.supports('backdrop-filter', 'blur(1px)') ||
+			CSS.supports('-webkit-backdrop-filter', 'blur(1px)')) {
+			document.documentElement.classList.add('backdrop-supported');
+		} else {
+			document.documentElement.classList.add('no-backdrop-support');
+		}
+	</script>
+	<script>
 		document.documentElement.classList.remove("no-js");
 		var argonConfig = {
 			wp_path: "<?php echo $GLOBALS['wp_path']; ?>",
